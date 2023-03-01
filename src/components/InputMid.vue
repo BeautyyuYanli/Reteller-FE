@@ -18,7 +18,8 @@ const text_update = () => {
 <template>
   <div id="mid">
     <textarea id="text" ref="input_direct" @change="text_update"></textarea>
-    <input type="file" ref="input" @change="extract_input" />
+    <button class="text_file" onclick="document.getElementById('text_file_input').click()">Upload Text</button>
+    <input id="text_file_input" type="file" ref="input" style="display: none" @change="extract_input" />
   </div>
 </template>
 <style scoped>
@@ -30,7 +31,7 @@ const text_update = () => {
 }
 
 #mid,
-#mid > * {
+#mid>* {
   width: 100%;
 }
 
