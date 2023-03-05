@@ -6,6 +6,7 @@ import OutputBoxs from './components/OutputBoxs.vue'
 import InputTop from './components/InputTop.vue'
 import InputMid from './components/InputMid.vue'
 import InputBottom from './components/InputBottom.vue'
+import OutputBottom from './components/OutputBottom.vue'
 let send_data = ref({})
 let response = ref([])
 let status = ref('stopped')
@@ -48,20 +49,15 @@ const cancel = () => {
 </script>
 <template>
   <header>
-    <InputTop
-      id="top"
-      :status="status"
-      @send="send"
-      @cancel="cancel"
-      @cookies_update="(cookies) => (send_data.cookies = cookies)"
-    />
+    <InputTop id="top" :status="status" @send="send" @cancel="cancel"
+      @cookies_update="(cookies) => (send_data.cookies = cookies)" />
     <InputMid id="mid" @text_update="(text) => (send_data.text = text)" />
     <InputBottom id="bottom" @excludes_update="(excludes) => (send_data.excludes = excludes)" />
   </header>
 
   <main>
     <OutputBoxs :value="response" />
-    <p>{{ status }}</p>
+    <OutputBottom :app_status="status" :value="response" />
   </main>
 </template>
 

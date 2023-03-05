@@ -12,6 +12,7 @@ defineProps(['value'])
 <style scoped>
 li {
   list-style: none;
+  border-bottom: 1px solid #888;
 }
 
 ul {
